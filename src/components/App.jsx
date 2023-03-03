@@ -25,12 +25,7 @@ export class App extends Component {
   };
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.query !== this.state.query && this.state.query !== '') {
-      this.setState({ images: [], page: 1 });
-      this.loadImages();
-    }
-
-    if (prevState.page !== this.state.page && this.state.page !== 1) {
+      if (prevState.page !== this.state.page || prevState.query !== this.state.query) {
       this.loadImages();
     }
   }
